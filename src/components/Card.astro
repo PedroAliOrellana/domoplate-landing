@@ -1,0 +1,22 @@
+---
+interface Props {
+  variant?: 'elevated' | 'outlined' | 'filled';
+  class?: string;
+}
+
+const { variant = 'elevated', class: className } = Astro.props;
+
+const baseStyles = "rounded-[12px] p-4 flex flex-col transition-shadow duration-200";
+
+const variants = {
+  elevated: "bg-surface-variant text-on-surface-variant shadow-md",
+  filled: "bg-surface-variant text-on-surface-variant",
+  outlined: "border border-outline bg-surface text-on-surface",
+};
+
+// MD3 cards often have a surface container color
+---
+
+<div class:list={[baseStyles, variants[variant], className]}>
+  <slot />
+</div>

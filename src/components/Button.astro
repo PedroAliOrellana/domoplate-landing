@@ -1,0 +1,24 @@
+---
+interface Props {
+  variant?: 'filled' | 'tonal' | 'text' | 'outlined';
+  href?: string;
+  class?: string;
+}
+
+const { variant = 'filled', href, class: className } = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center px-6 py-2.5 rounded-full font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary gap-2 cursor-pointer text-sm tracking-wide";
+
+const variants = {
+  filled: "bg-primary text-on-primary hover:bg-opacity-90 active:bg-opacity-100 shadow-md",
+  tonal: "bg-secondary-container text-on-secondary-container hover:bg-opacity-80",
+  outlined: "border border-outline text-primary hover:bg-primary/10",
+  text: "text-primary hover:bg-primary/10 px-3", // Text buttons often have less padding horizontally
+};
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element href={href} class:list={[baseStyles, variants[variant], className]}>
+  <slot />
+</Element>

@@ -1,0 +1,56 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+---
+
+<MainLayout title="Mobile First Astro MD3">
+	<main class="w-full flex flex-col p-4 gap-8 md:p-8">
+		<!-- Hero Section -->
+		<section class="flex flex-col gap-6 items-center text-center py-8 md:py-16">
+			<h1 class="text-display-small md:text-display-large font-bold text-on-surface">
+				Mobile First with pure CSS & MD3
+			</h1>
+			<p class="text-body-large text-on-surface-variant max-w-2xl">
+				This template demonstrates a responsive design that starts from 360px and scales up to 1440px+ using Material Design 3 tokens and Tailwind CSS v4.
+			</p>
+			<div class="flex gap-4 flex-wrap justify-center">
+				<Button variant="filled" href="#features">Get Started</Button>
+				<Button variant="outlined" href="https://astro.build">Learn Astro</Button>
+			</div>
+		</section>
+
+		<!-- Features Grid -->
+		<section id="features" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<Card variant="filled" class="gap-2">
+				<h2 class="text-title-medium font-bold">Responsive</h2>
+				<p class="text-body-medium">
+					Built with mobile-first utilities. Resizing the browser changes the layout seamlessly.
+				</p>
+			</Card>
+			<Card variant="outlined" class="gap-2">
+				<h2 class="text-title-medium font-bold">Material 3</h2>
+				<p class="text-body-medium">
+					Uses standard MD3 color tokens and elevation states for a modern feel.
+				</p>
+			</Card>
+			<Card variant="elevated" class="gap-2">
+				<h2 class="text-title-medium font-bold">Astro & Tailwind</h2>
+				<p class="text-body-medium">
+					Leverages the power of Astro components and Tailwind's utility classes for rapid development.
+				</p>
+			</Card>
+		</section>
+		
+		<!-- Interactive Elements Demo -->
+		<section class="flex flex-col items-center gap-4 py-8 border-t border-outline/20">
+			<h2 class="text-headline-small text-on-surface">Components Demo</h2>
+			<div class="flex gap-4 flex-wrap justify-center items-center">
+				<Button variant="filled">Filled</Button>
+				<Button variant="tonal">Tonal</Button>
+				<Button variant="outlined">Outlined</Button>
+				<Button variant="text">Text</Button>
+			</div>
+		</section>
+	</main>
+</MainLayout>
